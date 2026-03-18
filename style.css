@@ -12,6 +12,8 @@ body {
     font-family: 'Inter', sans-serif;
     background-color: var(--body-bg);
     color: var(--primary-color) !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 i {
@@ -37,12 +39,13 @@ button {
 
 .cv-container {
     max-width: 1200px;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-top: 0;
+    margin-bottom: 0;
     background: #fff;
     border-radius: var(--border-radius);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     overflow: hidden;
+    contain: content;
 }
 
 /* Sidebar Styling */
@@ -120,6 +123,39 @@ button {
 
 
 @media print {
-    body { background-color: #fff; }
-    .no-print { display: none !important; }
+
+    @page {
+        margin: 0;
+    }
+
+    .cv-container {
+        width: 100% !important;
+        max-width: none !important;
+        border: none !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        width: 90% !important;
+        box-shadow: none !important;
+        border: 1px solid #eee !important; 
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    section, .experience-item, .sidebar section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
 }
