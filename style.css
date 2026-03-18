@@ -1,0 +1,98 @@
+:root {
+    --primary-color: #0d6efd; 
+    --dark-bg: #212529;
+    --light-text: #f8f9fa;
+    --body-bg: #f4f7f6;
+    --border-radius: 0.5rem;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--body-bg);
+    color: #333;
+}
+
+.cv-container {
+    max-width: 1000px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    padding: 2rem;
+}
+
+/* Header Styling */
+.header-main {
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    padding: 3rem 2rem;
+}
+
+.section-title {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+}
+
+.skill-tag {
+    display: inline-block;
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.experience-item {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 2px solid #dee2e6;
+    margin-bottom: 2.5rem;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: -9px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+/* MDI Icon Adjustment */
+.mdi {
+    vertical-align: middle;
+    line-height: 1;
+}
+
+/* Stampa */
+@media print {
+    body { background-color: #fff; }
+    .cv-container { box-shadow: none; margin-top: 0; width: 100% !important; max-width: 100% !important; }
+    .no-print { display: none !important; }
+    .sidebar { background-color: #fff !important; border-right: none; }
+    .header-main { background-color: #000 !important; color: #fff !important; }
+}
