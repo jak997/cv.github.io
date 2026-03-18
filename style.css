@@ -1,5 +1,7 @@
 :root {
-    --primary-color: #0d6efd; 
+    --primary-color-light: #87f8cf;
+    --primary-color: #17b67c;
+    --primary-color-dark: #0f4d36;
     --dark-bg: #212529;
     --light-text: #f8f9fa;
     --body-bg: #f4f7f6;
@@ -9,11 +11,32 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--body-bg);
-    color: #333;
+    color: var(--primary-color) !important;
+}
+
+i {
+    color: var(--primary-color) !important;
+}
+
+button {
+    color: var(--primary-color-light) !important;
+    i {
+        color: var(--primary-color-light) !important;
+    }
+    border-color: var(--primary-color-dark) !important;
+    background-color: var(--primary-color-dark) !important;
+    &:hover{
+     border-color: var(--primary-color) !important;
+    color: black !important;
+    background-color: var(--primary-color) !important;
+    i {
+        color:black !important;
+    }
+    }
 }
 
 .cv-container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin-top: 3rem;
     margin-bottom: 3rem;
     background: #fff;
@@ -37,11 +60,11 @@ body {
 }
 
 .section-title {
-    color: var(--primary-color);
+    color: var(--primary-color) !important;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
-    border-bottom: 2px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color-dark);
     margin-bottom: 1.5rem;
     padding-bottom: 0.3rem;
     font-size: 1.1rem;
@@ -82,17 +105,21 @@ body {
     text-align: justify;
 }
 
-/* MDI Icon Adjustment */
 .mdi {
     vertical-align: middle;
     line-height: 1;
 }
 
-/* Stampa */
+.c-primary-i{
+    color: var(--primary-color) !important;
+}
+
+.c-primary-dark-i{
+    color: var(--primary-color-dark) !important;
+}
+
+
 @media print {
     body { background-color: #fff; }
-    .cv-container { box-shadow: none; margin-top: 0; width: 100% !important; max-width: 100% !important; }
     .no-print { display: none !important; }
-    .sidebar { background-color: #fff !important; border-right: none; }
-    .header-main { background-color: #000 !important; color: #fff !important; }
 }
