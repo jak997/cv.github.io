@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Technical Lead & Full-Stack Developer</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome per Icone -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd; /* Classico Blu Bootstrap o il tuo brand */
+            --dark-bg: #212529;
+            --light-text: #f8f9fa;
+            --body-bg: #f4f7f6;
+            --border-radius: 0.5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--body-bg);
+            color: #333;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            background-color: #f8f9fa;
+            border-right: 1px solid #dee2e6;
+            padding: 2rem;
+        }
+
+        /* Header Styling */
+        .header-main {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid #dee2e6;
+            margin-bottom: 2.5rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        /* Stampa */
+        @media print {
+            body { background-color: #fff; }
+            .cv-container { box-shadow: none; margin-top: 0; width: 100% !important; max-width: 100% !important; }
+            .no-print { display: none !important; }
+            .sidebar { background-color: #fff !important; border-right: none; }
+            .header-main { background-color: #000 !important; color: #fff !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container cv-container">
+        <!-- Header -->
+        <header class="header-main row align-items-center">
+            <div class="col-md-8 text-center text-md-start">
+                <h1 class="fw-bold mb-1">Il Tuo Nome</h1>
+                <p class="lead text-info mb-4">Technical Lead | Full-Stack Developer | Agile Coordinator</p>
+                <div class="row g-2 text-white-50 small">
+                    <div class="col-sm-6 col-lg-4">
+                        <i class="fas fa-map-marker-alt me-2 text-info"></i>Città, Italia
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <i class="fas fa-envelope me-2 text-info"></i>email@esempio.it
+                    </div>
+                    <div class="col-sm-6 col-lg-4">
+                        <i class="fab fa-linkedin me-2 text-info"></i>linkedin.com/in/tuoprofilo
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 text-center text-md-end mt-4 mt-md-0 no-print">
+                <button class="btn btn-outline-info btn-lg" onclick="window.print()">
+                    <i class="fas fa-download me-2"></i>Scarica PDF
+                </button>
+            </div>
+        </header>
+
+        <div class="row g-0">
+            <!-- Sidebar -->
+            <aside class="col-md-4 sidebar">
+                
+                <section class="mb-5">
+                    <h3 class="section-title">Hard Skills</h3>
+                    <div class="mb-3">
+                        <h6 class="fw-bold text-muted small uppercase mb-2">Back-end</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-tag">.NET (C#/VB)</span>
+                            <span class="skill-tag">EF Core</span>
+                            <span class="skill-tag">WebAPI</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="fw-bold text-muted small uppercase mb-2">Front-end</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">TypeScript</span>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="fw-bold text-muted small uppercase mb-2">Database</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-tag">SQL Server</span>
+                            <span class="skill-tag">Oracle</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="section-title">Metodologie</h3>
+                    <ul class="list-unstyled small">
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Agile Scrum</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Servant Leadership</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Business-Tech Bridge</li>
+                        <li class="mb-2"><i class="fas fa-check text-primary me-2"></i> Software Lifecycle (CI/CD)</li>
+                    </ul>
+                </section>
+
+                <section class="mb-5">
+                    <h3 class="section-title">Lingue</h3>
+                    <div class="d-flex justify-content-between small">
+                        <span>Italiano</span>
+                        <span class="fw-bold text-primary">Madrelingua</span>
+                    </div>
+                    <hr class="my-2">
+                    <div class="d-flex justify-content-between small">
+                        <span>Inglese</span>
+                        <span class="text-muted">Tecnico</span>
+                    </div>
+                </section>
+
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-md-8 p-4 p-md-5">
+                
+                <!-- About -->
+                <section class="mb-5">
+                    <h3 class="section-title">Profilo Personale</h3>
+                    <p class="text-muted fst-italic mb-3">
+                        Sono una figura tecnica con una forte inclinazione gestionale, capace di muovermi agilmente tra lo sviluppo software e la guida di team di sviluppo.
+                    </p>
+                    <p class="text-justify">
+                        Affronto ogni progetto con spirito imprenditoriale e con la cura di chi lo sente proprio, investendo costantemente nella mia formazione tecnica e gestionale, imparando dagli altri e restituendo ciò che ho imparato a chi lavora con me.
+                    </p>
+                </section>
+
+                <!-- Experience -->
+                <section class="mb-5">
+                    <h3 class="section-title">Esperienza</h3>
+                    
+                    <div class="experience-item">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h5 class="fw-bold mb-0">Technical Lead & Developer</h5>
+                            <span class="badge bg-light text-dark border">2021 - Oggi</span>
+                        </div>
+                        <p class="text-primary fw-semibold mb-3 small">Nome Azienda Attuale</p>
+                        <ul class="small text-muted ps-3">
+                            <li class="mb-2"><strong>Bridge Business-Tech:</strong> traduzione requisiti in User Stories e task tecnici per il team di sviluppo.</li>
+                            <li class="mb-2"><strong>Agile Coordination:</strong> gestione workflow Scrum e servant-leadership, con focus sul lato umano.</li>
+                            <li><strong>Problem Solving:</strong> rimozione blocchi tecnici e mediazione organizzativa esterna al team.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h5 class="fw-bold mb-0">Full-Stack Developer</h5>
+                            <span class="badge bg-light text-dark border">2018 - 2021</span>
+                        </div>
+                        <p class="text-muted fw-semibold mb-3 small">Nome Azienda Precedente</p>
+                        <p class="small text-muted mb-2">Sviluppo di applicativi enterprise Web e Windows Desktop in ecosistema .NET.</p>
+                        <div class="d-flex flex-wrap mt-2">
+                            <span class="badge border text-dark fw-normal me-1">C#</span>
+                            <span class="badge border text-dark fw-normal me-1">Angular</span>
+                            <span class="badge border text-dark fw-normal me-1">SQL</span>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- Education -->
+                <section>
+                    <h3 class="section-title">Formazione</h3>
+                    <div class="d-flex justify-content-between small">
+                        <div>
+                            <h6 class="fw-bold mb-0">Titolo di Studio / Laurea</h6>
+                            <p class="mb-0 text-muted">Università degli Studi / Istituto</p>
+                        </div>
+                        <span class="text-muted">Anno</span>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Footer / GDPR -->
+        <footer class="bg-light p-3 text-center small text-muted border-top">
+            Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/03 e del GDPR (Regolamento UE 2016/679).
+        </footer>
+    </div>
+
+</body>
+</html>
