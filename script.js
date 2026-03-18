@@ -1,51 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("downloadPDF");
+  const btnDownloadPDF = document.getElementById("downloadPDF");
+  const btnGoToLinkedin = document.getElementById("goToLinkedin");
 
-  if (!btn) return;
+  if (btnDownloadPDF) {
+    btnDownloadPDF.addEventListener("click", function () {
+      const element = document.querySelector(".cv-container");
 
-  btn.addEventListener("click", function () {
-    const element = document.querySelector(".cv-container");
+      if (!element) {
+        console.error(".cv-container not found");
+        return;
+      }
 
-    if (!element) {
-      console.error(".cv-container not found");
-      return;
-    }
+      const originalContent = this.innerHTML;
+      this.disabled = true;
+      this.innerHTML =
+        '<i class="mdi mdi-loading mdi-spin me-2"></i>Generazione PDF...';
 
-    const originalContent = this.innerHTML;
-    this.disabled = true;
-    this.innerHTML =
-      '<i class="mdi mdi-loading mdi-spin me-2"></i>Generazione PDF...';
+      const opt = {
+        margin: 0,
+        filename: "CV_Luca_Di_Pietro.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: {
+          scale: 4,
+          useCORS: true,
+          letterRendering: true,
+          scrollX: 0,
+          scrollY: 0,
+        },
+        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+      };
 
-    const opt = {
-      margin: 0,
-      filename: "CV_Luca_Di_Pietro.pdf",
-      image: { type: "jpeg", quality: 1 },
-      html2canvas: {
-        scale: 4,
-        useCORS: true,
-        letterRendering: true,
-        scrollX: 0,
-        scrollY: 0,
-      },
-      jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-    };
+      btnDownloadPDF.style.visibility = "hidden";
 
-    btn.style.visibility = "hidden";
+      html2pdf()
+        .set(opt)
+        .from(element)
+        .save()
+        .then(() => {
+          this.disabled = false;
+          this.innerHTML = originalContent;
+          btnDownloadPDF.style.visibility = "visible";
+        })
+        .catch((err) => {
+          console.error("Error html2pdf:", err);
+          this.disabled = false;
+          this.innerHTML = "Something whent worng";
+          btnDownloadPDF.style.visibility = "visible";
+        });
+    });
+  }
 
-    html2pdf()
-      .set(opt)
-      .from(element)
-      .save()
-      .then(() => {
-        this.disabled = false;
-        this.innerHTML = originalContent;
-        btn.style.visibility = "visible";
-      })
-      .catch((err) => {
-        console.error("Error html2pdf:", err);
-        this.disabled = false;
-        this.innerHTML = "Something whent worng";
-        btn.style.visibility = "visible";
-      });
-  });
+  if (btnGoToLinkedin) {
+    btnGoToLinkedin.addEventListener("click", function () {
+      window.open("https://www.linkedin.com/in/luca-di-pietro-764a63165", "_blank");
+    });
+  }
 });

@@ -2,11 +2,14 @@
   --primary-color-light: #70e2b8;
   --primary-color: #17b67c;
   --primary-color-dark: #0f4d36;
+
   --dark-bg: #212529;
   --light-text: #f8f9fa;
   --body-bg: #f4f7f6;
   --border-radius: 0.5rem;
 }
+
+/* DOM attributes */
 
 body {
   font-family: "Inter", sans-serif;
@@ -30,11 +33,59 @@ button {
   &:hover {
     border-color: var(--primary-color-light) !important;
     background-color: var(--primary-color-light) !important;
+    cursor: pointer;
   }
 }
 
+/* Shared classes */
+
+.text-justify {
+  text-align: justify;
+}
+
+.mdi {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.c-primary-i {
+  color: var(--primary-color) !important;
+}
+
+.c-primary-light-i {
+  color: var(--primary-color-light) !important;
+}
+
+.c-primary-dark-i {
+  color: var(--primary-color-dark) !important;
+}
+
+.text-url {
+  color: white;
+  &:hover {
+    color: skyblue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.lead.text-info {
+  display: block !important;
+  width: 100% !important;
+  letter-spacing: 0.01em; /* Aiuta il calcolo della larghezza dei caratteri */
+  white-space: nowrap; /* Impedisce al testo di spezzarsi su due righe nel PDF */
+  margin-bottom: 25px !important; /* Spazio forzato per non far salire i contatti */
+}
+
+/* 2. Fix per html2canvas: evita che gli elementi flex collassino */
+.header-main .col-md-9 {
+  display: block !important;
+}
+
+/* Layout classes */
+
 .cv-container {
-  max-width: 1000px;
+  max-width: 1150px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   background: #fff;
@@ -69,6 +120,12 @@ button {
 
 .contact-info {
   color: white !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > i {
+    font-size: 17px;
+  }
 }
 
 .skill-tag {
@@ -100,40 +157,6 @@ button {
   background-color: var(--primary-color);
   border-radius: 50%;
   border: 3px solid #fff;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.mdi {
-  vertical-align: middle;
-  line-height: 1;
-}
-
-.c-primary-i {
-  color: var(--primary-color) !important;
-}
-
-.c-primary-light-i {
-  color: var(--primary-color-light) !important;
-}
-
-.c-primary-dark-i {
-  color: var(--primary-color-dark) !important;
-}
-
-.lead.text-info {
-  display: block !important;
-  width: 100% !important;
-  letter-spacing: 0.01em; /* Aiuta il calcolo della larghezza dei caratteri */
-  white-space: nowrap; /* Impedisce al testo di spezzarsi su due righe nel PDF */
-  margin-bottom: 25px !important; /* Spazio forzato per non far salire i contatti */
-}
-
-/* 2. Fix per html2canvas: evita che gli elementi flex collassino */
-.header-main .col-md-9 {
-  display: block !important;
 }
 
 @media print {
