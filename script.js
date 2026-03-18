@@ -1,39 +1,48 @@
-const btn = document.getElementById("downloadPDF");
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById("downloadPDF");
 
-btn.addEventListener("click", function () {
-  const element = document.querySelector(".cv-container");
-  const originalContent = this.innerHTML;
+    if (!btn) return; 
 
-  this.disabled = true;
-  this.innerHTML =
-    '<i class="mdi mdi-loading mdi-spin me-2"></i>Generazione PDF...';
+    btn.addEventListener("click", function () {
+        const element = document.querySelector(".cv-container");
+        
+        if (!element) {
+            console.error(".cv-container not found");
+            return;
+        }
 
-  const opt = {
-    margin: 0,
-    filename: "CV_Luca_Di_Pietro.pdf",
-    image: { type: "jpeg", quality: 0.98 },
-    html2canvas: {
-      scale: 2,
-      useCORS: true,
-      letterRendering: true,
-    },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-  };
+        const originalContent = this.innerHTML;
+        this.disabled = true;
+        this.innerHTML = '<i class="mdi mdi-loading mdi-spin me-2"></i>Generazione PDF...';
 
-  btn.style.visibility = "hidden";
+        const opt = {
+            margin: 0,
+            filename: "CV_Luca_Di_Pietro.pdf",
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
+                letterRendering: true,
+            },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        };
 
-  html2pdf()
-    .set(opt)
-    .from(element)
-    .save()
-    .then(() => {
-      this.disabled = false;
-      this.innerHTML = originalContent;
-      btn.style.visibility = "visible";
-    })
-    .catch((err) => {
-      console.error("Qualcosa è andato storto:", err);
-      this.disabled = false;
-      this.innerHTML = "Errore";
+        btn.style.visibility = "hidden";
+
+        html2pdf()
+            .set(opt)
+            .from(element)
+            .save()
+            .then(() => {
+                this.disabled = false;
+                this.innerHTML = originalContent;
+                btn.style.visibility = "visible";
+            })
+            .catch((err) => {
+                console.error("Error html2pdf:", err);
+                this.disabled = false;
+                this.innerHTML = "Something whent worng";
+                btn.style.visibility = "visible";
+            });
     });
 });
