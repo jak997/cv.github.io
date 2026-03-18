@@ -1,5 +1,5 @@
 :root {
-  --primary-color-light: #87f8cf;
+  --primary-color-light: #70e2b8;
   --primary-color: #17b67c;
   --primary-color-dark: #0f4d36;
   --dark-bg: #212529;
@@ -21,19 +21,15 @@ i {
 }
 
 button {
-  color: var(--primary-color-light) !important;
+  color: black !important;
   i {
-    color: var(--primary-color-light) !important;
-  }
-  border-color: var(--primary-color-dark) !important;
-  background-color: var(--primary-color-dark) !important;
-  &:hover {
-    border-color: var(--primary-color) !important;
     color: black !important;
-    background-color: var(--primary-color) !important;
-    i {
-      color: black !important;
-    }
+  }
+  border-color: var(--primary-color) !important;
+  background-color: var(--primary-color) !important;
+  &:hover {
+    border-color: var(--primary-color-light) !important;
+    background-color: var(--primary-color-light) !important;
   }
 }
 
@@ -48,17 +44,15 @@ button {
   contain: content;
 }
 
-/* Sidebar Styling */
 .sidebar {
   background-color: #f8f9fa;
   border-right: 1px solid #dee2e6;
   padding: 2rem;
 }
 
-/* Header Styling */
 .header-main {
   background-color: var(--dark-bg);
-  color: var(--light-text);
+  color: white;
   padding: 3rem 2rem;
 }
 
@@ -71,6 +65,10 @@ button {
   margin-bottom: 1.5rem;
   padding-bottom: 0.3rem;
   font-size: 1.1rem;
+}
+
+.contact-info {
+  color: white !important;
 }
 
 .skill-tag {
@@ -117,8 +115,25 @@ button {
   color: var(--primary-color) !important;
 }
 
+.c-primary-light-i {
+  color: var(--primary-color-light) !important;
+}
+
 .c-primary-dark-i {
   color: var(--primary-color-dark) !important;
+}
+
+.lead.text-info {
+  display: block !important;
+  width: 100% !important;
+  letter-spacing: 0.01em; /* Aiuta il calcolo della larghezza dei caratteri */
+  white-space: nowrap; /* Impedisce al testo di spezzarsi su due righe nel PDF */
+  margin-bottom: 25px !important; /* Spazio forzato per non far salire i contatti */
+}
+
+/* 2. Fix per html2canvas: evita che gli elementi flex collassino */
+.header-main .col-md-9 {
+  display: block !important;
 }
 
 @media print {
