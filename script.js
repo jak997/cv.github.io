@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     btnDownloadPDF.addEventListener("click", function () {
       const link = document.createElement("a");
 
-      link.href = "/CV_Luca_Di_Pietro.pdf";
+      link.href = "CV_Luca_Di_Pietro.pdf";
 
       link.download = "Luca_Di_Pietro_CV.pdf";
 
