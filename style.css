@@ -37,6 +37,10 @@ button {
   }
 }
 
+li {
+  margin-bottom: 8px !important;
+}
+
 /* Shared classes */
 
 .text-justify {
@@ -72,12 +76,11 @@ button {
 .lead.text-info {
   display: block !important;
   width: 100% !important;
-  letter-spacing: 0.01em; /* Aiuta il calcolo della larghezza dei caratteri */
-  white-space: nowrap; /* Impedisce al testo di spezzarsi su due righe nel PDF */
-  margin-bottom: 25px !important; /* Spazio forzato per non far salire i contatti */
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-bottom: 25px !important;
 }
 
-/* 2. Fix per html2canvas: evita che gli elementi flex collassino */
 .header-main .col-md-9 {
   display: block !important;
 }
@@ -144,7 +147,10 @@ button {
   position: relative;
   padding-left: 1.5rem;
   border-left: 2px solid #dee2e6;
-  margin-bottom: 2.5rem;
+}
+
+.experience-item.chained {
+  margin-top: -48px;
 }
 
 .experience-item::before {
@@ -159,21 +165,30 @@ button {
   border: 3px solid #fff;
 }
 
+.company-additional-info {
+  color: var(--dark-bg) !important;
+  font-size: 14px;
+}
+
 @media print {
   @page {
     margin: 0;
   }
 
   .cv-container {
-    width: 100% !important;
+     
     max-width: none !important;
     border: none !important;
     margin-top: 0 !important;
-    margin-bottom: 0 !important;
+    margin-bottom: 5mm !important;
     padding: 0 !important;
     width: 90% !important;
     box-shadow: none !important;
     border: 1px solid #eee !important;
+
+    width: 250mm !important;
+    transform: scale(0.8);     
+    transform-origin: top left;  
   }
 
   * {
