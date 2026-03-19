@@ -17,17 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
         '<i class="mdi mdi-loading mdi-spin me-2"></i>Generazione PDF...';
 
       const opt = {
-        margin: 0,
+        margin: [5, 5, 5, 5],
         filename: "CV_Luca_Di_Pietro.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: {
-          scale: 4,
+          scale: 3,
           useCORS: true,
           letterRendering: true,
           scrollX: 0,
           scrollY: 0,
         },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+        jsPDF: {
+          unit: "mm",
+          format: "a4",
+          orientation: "portrait",
+          compress: true,
+        },
       };
 
       btnDownloadPDF.style.visibility = "hidden";
@@ -52,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (btnGoToLinkedin) {
     btnGoToLinkedin.addEventListener("click", function () {
-      window.open("https://www.linkedin.com/in/luca-di-pietro-764a63165", "_blank");
+      window.open(
+        "https://www.linkedin.com/in/luca-di-pietro-764a63165",
+        "_blank",
+      );
     });
   }
 });
